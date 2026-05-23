@@ -84,8 +84,10 @@ function HeaderProfileCard() {
           <User height={32} width={32} className={"text-text-secondary"}></User>
         </AvatarFallback>
       </Avatar>
-      <span className="hidden lg:block">View Github Profile</span>
-      <span className={"block lg:hidden text-ellipsis"}>{login}</span>
+      <p className="hidden md:block">
+        <span className="hidden lg:block">View Github Profile</span>
+        <span className={"block lg:hidden text-ellipsis"}>{login}</span>
+      </p>
     </a>
   );
 }
