@@ -12,7 +12,7 @@ function Footer() {
   return (
     <footer className="flex w-full flex-col lg:flex-row relative bottom-0 left-0 gap-10 lg:gap-100 justify-center px-4 py-4 items-center  shadow-lg border-b border-border-subtle backdrop-blur-lg mt-4">
       <div className="w-full lg:w-[30%]">
-        <Card className="w-78.75 py-5 px-3 max-w-sm border-0 shadow-[none]  bg-bg-surface border-bg-elevated rounded-2xl mx-auto">
+        <Card className="w-90 py-5 px-3 max-w-sm border-10 shadow-[none]  bg-bg-surface border-bg-elevated rounded-2xl mx-auto text-center">
           <CardHeader className="w-auto flex flex-col gap-4 justify-center">
             <Suspense
               fallback={
@@ -44,7 +44,7 @@ function Footer() {
             </Suspense>
           </CardContent>
           <CardFooter className="flex-col gap-5">
-            <div className="flex flex-wrap w-full gap-3">
+            <div className="flex flex-wrap w-full gap-3 justify-center">
               {["frontend", "css", "react", "javascript", "vue"].map(
                 (tag, i) => (
                   <Badge className="border-accent-muted rounded-md p-3" key={i}>
@@ -111,13 +111,13 @@ function CardHeading2() {
 
 function CardHeading1() {
   const user = useUser().data;
-  return <p className="font-bold text-lg">{user.login}</p>;
+  return <p className="font-bold text-lg">{user.name}</p>;
 }
 
 function CardAvatar() {
   const user = useUser().data;
   return (
-    <Avatar className={"rounded-full text-xl h-25 w-25"}>
+    <Avatar className={"rounded-full text-xl h-40 w-40 border-5 mx-auto"}>
       <AvatarImage src={user.avatar_url} alt={user.login} />
       <AvatarFallback
         className={
