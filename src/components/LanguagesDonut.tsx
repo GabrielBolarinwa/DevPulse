@@ -1,8 +1,13 @@
 import { useRepositoryLanguages } from "@/services/queries";
 import { getLanguageColor } from "@/utlls";
-import { Pie, PieChart, Tooltip } from "recharts";
+import { useState } from "react";
+import { Pie, PieChart, type PieSectorDataItem } from "recharts";
 
 function LanguagesDonut() {
+  const [activeSegment, setActiveSegment] = useState<PieSectorDataItem | null>(
+    null,
+  );
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
   const languages = useRepositoryLanguages().data;
   const languagesChartData = languages.map((language) => ({
     name: language.name,
@@ -40,16 +45,16 @@ function LanguagesDonut() {
               startAngle={90}
               endAngle={-270}
               tabIndex={0}
-            />
-            <Tooltip
-              contentStyle={{
-                background: "#1c2030",
-                border: "1px solid #252a3d",
+              onMouseMove={(data, _, event) => {
+                setActiveSegment(data);
+                setTooltipPos({ x: event.clientX, y: event.clientY });
               }}
-              cursor={{ fill: "#252a3d" }}
-              formatter={(value) => `${value}%`}
+              onMouseLeave={() => setActiveSegment(null)}
             />
           </PieChart>
+          {activeSegment && (
+            <Tooltip activeSegment={activeSegment} tooltipPos={tooltipPos} />
+          )}
           <div className="absolute inset-0 flex flex-col items-center justify-center top-[30%] left-1/2 -translate-x-1/2 h-max z-0">
             <span className="text-2xl font-bold text-text-primary">
               {biggestLanguage.value}%
@@ -82,3 +87,23 @@ function LanguagesDonut() {
 }
 
 export default LanguagesDonut;
+interface TooltipProps {
+  tooltipPos: { x: number; y: number };
+  activeSegment: PieSectorDataItem;
+}
+
+function Tooltip({ tooltipPos, activeSegment }: TooltipProps) {
+  return (
+    <div
+      className="fixed bg-bg-elevated border border-subtle rounded-md px-3 py-2 text-xs text-text-primary pointer-events-none"
+      style={{
+        top: tooltipPos.y,
+        left: tooltipPos.x,
+        zIndex: 100,
+        transform: "translate(10px,-50px)",
+      }}
+    >
+      {activeSegment.name}: {activeSegment.value}%
+    </div>
+  );
+}
