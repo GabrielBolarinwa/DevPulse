@@ -8,7 +8,6 @@ import type {
   MonthlyCommitsQueryResult,
 } from "@/types";
 import axios from "axios";
-import * as querystring from "node:querystring";
 
 export const api = axios.create({
   baseURL: "https://api.github.com",
@@ -19,7 +18,7 @@ export const api = axios.create({
 });
 
 export const graphql = <T>(
-  query: querystring,
+  query: string,
   variables?: Record<string, unknown>,
 ) =>
   axios
