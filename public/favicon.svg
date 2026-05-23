@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="topGradient" x1="256" y1="80" x2="420" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4DA3FF"/>
+      <stop offset="1" stop-color="#1E5EFF"/>
+    </linearGradient>
+
+    <linearGradient id="leftGradient" x1="120" y1="260" x2="256" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF2FF"/>
+      <stop offset="1" stop-color="#8AB8FF"/>
+    </linearGradient>
+
+    <linearGradient id="rightGradient" x1="256" y1="260" x2="420" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E74FF"/>
+      <stop offset="1" stop-color="#133EC9"/>
+    </linearGradient>
+
+    <linearGradient id="arrowGradient" x1="256" y1="170" x2="256" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4EA5FF"/>
+      <stop offset="1" stop-color="#174BDB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Hexagon Top -->
+  <path d="M256 72L414 164V284L334 238V208L256 164L178 208V238L98 284V164L256 72Z" fill="url(#topGradient)"/>
+
+  <!-- Left Lower Panel -->
+  <path d="M98 284L178 330L256 284V376L178 422L98 376V284Z" fill="url(#leftGradient)"/>
+
+  <!-- Right Lower Panel -->
+  <path d="M256 284L334 330L414 284V376L334 422L256 376V284Z" fill="url(#rightGradient)"/>
+
+  <!-- Center Arrow -->
+  <path d="M256 170L348 262H286V430H226V262H164L256 170Z" fill="url(#arrowGradient)"/>
+</svg>

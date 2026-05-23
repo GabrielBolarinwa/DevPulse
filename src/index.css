@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme {
+  --color-bg-base: #0d0f1a;
+  --color-bg-surface: #151825;
+  --color-bg-elevated: #1c2030;
+
+  --color-border-subtle: #252a3d;
+
+  --color-text-primary: #e8eaf0;
+  --color-text-secondary: #7a8099;
+  --color-text-muted: #4a5068;
+
+  --color-accent: #4d8ef0;
+  --color-accent-muted: #2a4a8a;
+
+  --color-lang-ts: #4d8ef0;
+  --color-lang-html: #e8733a;
+  --color-lang-js: #f5c518;
+  --color-lang-css: #9b5de5;
+  --color-lang-python: #3bbfa0;
+
+  --color-star: #f5c518;
+  --color-verified: #4d8ef0;
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-script: "Allura", cursive;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  --size-avatar-sm: 1.5rem;
+  --size-avatar-md: 2rem;
+  --size-avatar-lg: 2.5rem;
+  --size-icon: 1rem;
+  --size-icon-md: 1.25rem;
+}
+
+:root {
+  --background: #0d0f1a;
+  --foreground: #e8eaf0;
+  --card: #151825;
+  --card-foreground: #e8eaf0;
+  --border: #252a3d;
+  --primary: #4d8ef0;
+  --primary-foreground: #e8eaf0;
+  --muted: #1c2030;
+  --muted-foreground: #7a8099;
+}
+
+@layer base {
+  *:focus {
+    @apply border-border-subtle outline-border-subtle/50;
+  }
+  html {
+    @apply overflow-x-hidden font-sans scroll-smooth;
+  }
+  body {
+    @apply bg-bg-base text-text-primary min-h-dvh [background-image:url('/devbg.webp')] bg-cover bg-no-repeat bg-center bg-fixed;
+  }
+  section {
+    @apply w-full;
+  }
+
+  .color-empty {
+    @apply fill-bg-surface/80!;
+  }
+  .color-scale-1 {
+    @apply fill-[#1a4731]!;
+  }
+  .color-scale-2 {
+    @apply fill-[#1e6b3c]!;
+  }
+  .color-scale-3 {
+    @apply fill-[#26a641]!;
+  }
+  .color-scale-4 {
+    @apply fill-[#39d353]!;
+  }
+  .react-calendar-heatmap text {
+    @apply fill-text-secondary! text-[0.5rem]! font-sans;
+  }
+}
+
+@keyframes barAnimate {
+  0% {
+    transform: scaleY(0);
+  }
+  70% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recharts-bar-rectangle,
+  .recharts-sector {
+    animation-duration: 0.001ms;
+  }
+}
