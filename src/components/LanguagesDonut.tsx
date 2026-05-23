@@ -45,12 +45,13 @@ function LanguagesDonut() {
               contentStyle={{
                 background: "#1c2030",
                 border: "1px solid #252a3d",
+                zIndex: 50,
               }}
               cursor={{ fill: "#252a3d" }}
               formatter={(value) => `${value}%`}
             />
           </PieChart>
-          <div className="absolute inset-0 flex flex-col items-center justify-center top-[30%] left-1/2 -translate-x-1/2 h-max z-0">
+          <div className="absolute inset-0 flex flex-col items-center justify-center top-[30%] left-1/2 -translate-x-1/2 h-max z-0 pointer-events-none">
             <span className="text-2xl font-bold text-text-primary">
               {biggestLanguage.value}%
             </span>

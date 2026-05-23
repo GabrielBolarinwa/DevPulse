@@ -14,7 +14,7 @@ function DashboardGrid() {
       <div className="col-span-6 lg:col-span-3">
         <ErrorBoundary fallback={<ErrorCard />}>
           <Suspense fallback={<ChartLoader />}>
-            <div className="bg-bg-elevated p-5 pl-0 flex flex-col justify-center rounded-2xl">
+            <div className="bg-bg-elevated p-5 pl-0 flex flex-col justify-center rounded-2xl ">
               <CommitsBarChart />
             </div>
           </Suspense>
