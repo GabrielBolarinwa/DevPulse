@@ -9,6 +9,9 @@ function LanguagesDonut() {
     value: parseFloat(language.percentage),
     fill: getLanguageColor(language.name),
   }));
+  const biggestLanguage = languagesChartData.reduce((max, obj) =>
+    obj.value > max.value ? obj : max,
+  );
   return (
     <div className="h-full w-full py-3 px-5">
       <h4 className="mb-4">Language Distribution</h4>
@@ -49,10 +52,10 @@ function LanguagesDonut() {
           </PieChart>
           <div className="absolute inset-0 flex flex-col items-center justify-center top-[30%] left-1/2 -translate-x-1/2 h-max z-0">
             <span className="text-2xl font-bold text-text-primary">
-              {languagesChartData[0].value}%
+              {biggestLanguage.value}%
             </span>
             <span className="text-xs text-text-secondary">
-              {languagesChartData[0].name}
+              {biggestLanguage.name}
             </span>
             <span className="text-xs text-text-muted truncate max-w-full">
               (Favourite Language)
