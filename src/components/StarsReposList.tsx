@@ -4,6 +4,7 @@ import { Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Separator } from "./ui/separator";
 import { Badge } from "./ui/badge";
+import { Fragment } from "react/jsx-runtime";
 
 function StarsReposList() {
   const repos = useRepos().data;
@@ -18,7 +19,7 @@ function StarsReposList() {
       <CardContent>
         <ul className="list-decimal flex flex-col gap-6 pl-7">
           {reposByStars.map((repo, i) => (
-            <>
+            <Fragment key={repo.id}>
               <li key={repo.id} className="border-b-accent">
                 <div className="flex justify-between gap-4">
                   <div className="flex items-center gap-4 pl-4 w-[80%]">
@@ -42,7 +43,7 @@ function StarsReposList() {
                 </div>
               </li>
               <Separator key={`stars-seperator-${i}`} className="bg-accent" />
-            </>
+            </Fragment>
           ))}
         </ul>
       </CardContent>

@@ -2,9 +2,14 @@ import { useAllTimeCommits, useRepos, useUser } from "@/services/queries.ts";
 import { parseTime } from "@/utlls";
 import { BookMarked, Calendar, Clock, Code2 } from "lucide-react";
 import type { StatCard } from "@/types";
+import { useMemo } from "react";
 
-const date = Date.now();
+function now() {
+  return Date.now();
+}
+
 export default function StatusCards() {
+  const date = useMemo(() => now(), []);
   const { totalCommitContributions, restrictedContributionsCount } =
     useAllTimeCommits().data;
   const allTimeCommits =
@@ -33,8 +38,8 @@ export default function StatusCards() {
       theme: "#3bbfa0",
       bgClass: `bg-[#3bbfa0]/30`,
       metric: allTimeCommits,
-      topHeading: "Total Public Repos",
-      bottomHeading: "All public Repositories",
+      topHeading: "Total Commits",
+      bottomHeading: "All Time Commits",
     },
     {
       id: 3,

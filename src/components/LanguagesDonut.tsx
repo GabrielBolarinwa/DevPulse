@@ -49,6 +49,20 @@ function LanguagesDonut() {
                 setActiveSegment(data);
                 setTooltipPos({ x: event.clientX, y: event.clientY });
               }}
+              onFocus={(data, _, event) => {
+                setActiveSegment(data);
+                setTooltipPos({
+                  x: event.target.clientLeft,
+                  y: event.target.clientTop,
+                });
+              }}
+              onKeyDown={(data, _, event) => {
+                setActiveSegment(data);
+                setTooltipPos({
+                  x: event.currentTarget.clientLeft,
+                  y: event.currentTarget.clientTop,
+                });
+              }}
               onMouseLeave={() => setActiveSegment(null)}
             />
           </PieChart>

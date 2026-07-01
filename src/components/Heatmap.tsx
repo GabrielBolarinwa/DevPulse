@@ -1,9 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-nocheck
 import { useHeatmapData } from "@/services/queries";
 import { dateFormat } from "@/utlls";
-import React from "react";
-import CalendarHeatmap from "react-calendar-heatmap";
+import React, { type ReactElement, type ReactSVGElement } from "react";
+import CalendarHeatmap, { type TooltipDataAttrs } from "react-calendar-heatmap";
 import { Tooltip } from "react-tooltip";
 
 function Heatmap() {
@@ -31,15 +29,17 @@ function Heatmap() {
               if (value.count <= 9) return "color-scale-3";
               return "color-scale-4";
             }}
-            tooltipDataAttrs={(value) => ({
-              "data-tooltip-id": "heatmap-tooltip",
-              "data-tooltip-content": value?.count
-                ? `${value.count} contributions on ${dateFormat(new Date(value.date))}`
-                : "No contributions",
-            })}
+            tooltipDataAttrs={(value) =>
+              ({
+                "data-tooltip-id": "heatmap-tooltip",
+                "data-tooltip-content": value?.count
+                  ? `${value.count} contributions on ${dateFormat(new Date(value.date))}`
+                  : "No contributions",
+              }) as unknown as TooltipDataAttrs
+            }
             showMonthLabels={true}
             transformDayElement={(element, value) =>
-              React.cloneElement(element, {
+              React.cloneElement(element as ReactElement as ReactSVGElement, {
                 tabIndex: 0,
                 "aria-label": value?.count
                   ? `${value.count} contributions on ${dateFormat(new Date(value.date))}`

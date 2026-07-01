@@ -67,9 +67,11 @@ export function useRepositoryLanguages() {
       if (useMock) return getMockLanguageStats();
       const top20 = repos!.slice(0, 20);
       const langTotals: Record<string, number> = {};
-      for (const repo of top20) {
-        const languages = await getRepositoryLanguages(repo.name, user.login);
-        for (const [lang, bytes] of Object.entries(languages)) {
+      const results = await Promise.all(
+        top20.map((repo) => getRepositoryLanguages(repo.name, user.login)),
+      );
+      for (const langStat of results) {
+        for (const [lang, bytes] of Object.entries(langStat)) {
           langTotals[lang] = (langTotals[lang] || 0) + bytes;
         }
       }
