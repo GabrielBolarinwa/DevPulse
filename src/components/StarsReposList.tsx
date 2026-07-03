@@ -42,7 +42,11 @@ function StarsReposList() {
                   </span>
                 </div>
               </li>
-              <Separator key={`stars-seperator-${i}`} className="bg-accent" />
+              <Separator
+                aria-hidden={true}
+                key={`stars-seperator-${i}`}
+                className="bg-accent"
+              />
             </Fragment>
           ))}
         </ul>

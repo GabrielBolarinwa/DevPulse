@@ -40,6 +40,7 @@ function Heatmap() {
             showMonthLabels={true}
             transformDayElement={(element, value) =>
               React.cloneElement(element as ReactElement as ReactSVGElement, {
+                role: "img",
                 tabIndex: 0,
                 "aria-label": value?.count
                   ? `${value.count} contributions on ${dateFormat(new Date(value.date))}`

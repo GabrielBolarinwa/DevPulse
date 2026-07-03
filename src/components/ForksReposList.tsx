@@ -41,7 +41,11 @@ function ForksReposList() {
                   </span>
                 </div>
               </li>
-              <Separator key={`fork-seperator-${i}`} className="bg-accent" />
+              <Separator
+                aria-hidden
+                key={`fork-seperator-${i}`}
+                className="bg-accent"
+              />
             </Fragment>
           ))}
         </ul>

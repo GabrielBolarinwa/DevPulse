@@ -10,9 +10,9 @@ import { dateFormat } from "@/utlls";
 
 function Footer() {
   return (
-    <footer className="flex w-full flex-col lg:flex-row relative bottom-0 left-0 gap-10 lg:gap-100 justify-center px-4 py-4 items-center  shadow-lg border-b border-border-subtle backdrop-blur-lg mt-4">
+    <footer className="flex w-full flex-col lg:flex-row relative bottom-0 left-0 gap-10 lg:gap-100 justify-center md:px-4 py-4 items-center  shadow-lg border-b border-border-subtle backdrop-blur-lg mt-4">
       <div className="w-full lg:w-[30%]">
-        <Card className="w-90 py-5 px-3 max-w-sm border-10 shadow-[none]  bg-bg-surface border-bg-elevated rounded-2xl mx-auto text-center">
+        <Card className="w-90 py-5 px-3 max-w-sm border-10 shadow-[none] bg-bg-surface border-bg-elevated rounded-2xl mx-auto text-center">
           <CardHeader className="w-auto flex flex-col gap-4 justify-center">
             <Suspense
               fallback={
@@ -57,13 +57,16 @@ function Footer() {
               <Suspense>
                 <GithubLink />
               </Suspense>
-              <a href="mailto:gabibola955@gmail.com">
+              <a href="mailto:gabibola955@gmail.com" aria-label={"Email"}>
                 <Mail />
               </a>
-              <a href="https://gabrielbolarinwa.vercel.app">
+              <a
+                href="https://gabrielbolarinwa.vercel.app"
+                aria-label={"Website"}
+              >
                 <Globe />
               </a>
-              <a href="tel:+2349135976371">
+              <a href="tel:+2349135976371" aria-label={"Phone Number"}>
                 <Phone />
               </a>
             </div>
