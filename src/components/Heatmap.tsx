@@ -16,6 +16,7 @@ function Heatmap() {
       <div className="overflow-x-auto mt-6">
         <div
           className="min-w-150 w-[80%] mx-auto"
+          role={"region"}
           aria-label="Contribution Activity over the past year"
         >
           <CalendarHeatmap
