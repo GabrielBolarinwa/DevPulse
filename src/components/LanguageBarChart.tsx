@@ -1,5 +1,5 @@
 import { useRepos } from "@/services/queries";
-import { getLanguageColor } from "@/utlls";
+import { getLanguageColor } from "@/utils";
 import {
   Bar,
   BarChart,

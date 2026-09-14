@@ -1,5 +1,5 @@
 import { useRepositoryLanguages } from "@/services/queries";
-import { getLanguageColor } from "@/utlls";
+import { getLanguageColor } from "@/utils";
 import { useState } from "react";
 import { Pie, PieChart, type PieSectorDataItem } from "recharts";
 

@@ -1,5 +1,5 @@
 import { useRepos } from "@/services/queries";
-import { getLanguageColor } from "@/utlls";
+import { getLanguageColor } from "@/utils";
 import { GitFork } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Separator } from "./ui/separator";

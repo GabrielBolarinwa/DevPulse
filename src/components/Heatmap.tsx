@@ -1,5 +1,5 @@
 import { useHeatmapData } from "@/services/queries";
-import { dateFormat } from "@/utlls";
+import { dateFormat } from "@/utils";
 import React, { type ReactElement, type ReactSVGElement } from "react";
 import CalendarHeatmap, { type TooltipDataAttrs } from "react-calendar-heatmap";
 import { Tooltip } from "react-tooltip";
