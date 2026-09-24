@@ -1,15 +1,9 @@
+import { useUpdatedTime } from "@/hooks/useUpdatedTime";
 import { useAllTimeCommits, useRepos, useUser } from "@/services/queries.ts";
-import { parseTime } from "@/utlls";
-import { BookMarked, Calendar, Clock, Code2 } from "lucide-react";
 import type { StatCard } from "@/types";
-import { useMemo } from "react";
-
-function now() {
-  return Date.now();
-}
+import { BookMarked, Calendar, Clock, Code2 } from "lucide-react";
 
 export default function StatusCards() {
-  const date = useMemo(() => now(), []);
   const { totalCommitContributions, restrictedContributionsCount } =
     useAllTimeCommits().data;
   const allTimeCommits =
@@ -20,7 +14,7 @@ export default function StatusCards() {
   const noOfYears = new Date().getFullYear() - createdTime;
 
   const { name: lastUpdatedRepo, updated_at: updateTime } = useRepos().data[0];
-  const updatedAt = parseTime((date - Number(new Date(updateTime))) / 1000);
+	const updatedAt = useUpdatedTime(Number(new Date(updateTime)));
 
   const cardStats: StatCard[] = [
     {
